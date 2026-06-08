@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>insight — Family & Program</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233050aa'/%3E%3Cg stroke='%23fff' stroke-width='3.4' fill='none' stroke-linecap='round'%3E%3Cline x1='32' y1='32' x2='32' y2='16'/%3E%3Cline x1='32' y1='32' x2='45.9' y2='40'/%3E%3Cline x1='32' y1='32' x2='18.1' y2='40'/%3E%3C/g%3E%3Cg fill='%233050aa' stroke='%23fff' stroke-width='3.4'%3E%3Ccircle cx='32' cy='16' r='4.2'/%3E%3Ccircle cx='45.9' cy='40' r='4.2'/%3E%3Ccircle cx='18.1' cy='40' r='4.2'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* family / product hues — hue fixed, lightness adapts per theme */
+  --navy:#7ba1fc; --navy-tile:#3050aa; --navy-light:#26418d;
+  --orange:#fb8a44; --orange-tile:#e76709; --orange-light:#c95200;
+  --cyan:#50d2e6; --cyan-tile:#00a4bf; --cyan-light:#0090ae;
+  --green:#98da6a; --green-tile:#87ce5b; --green-light:#43963c;
+}
+[data-theme="dark"]{
+  --page:#12151c; --page-2:#181c24; --card:#1a1e27; --card-2:#20252f;
+  --line:#2a303b; --line-2:#353c49;
+  --tx:#d6dbe4; --tx-mid:#9aa3b2; --tx-lo:#6f7888;
+  --accent:var(--navy);
+  --shadow:0 1px 0 rgba(255,255,255,.03), 0 18px 40px -24px rgba(0,0,0,.8);
+}
+[data-theme="light"]{
+  --page:#f4f6fa; --page-2:#eef1f7; --card:#ffffff; --card-2:#f7f9fc;
+  --line:#e1e6ef; --line-2:#d2d9e6;
+  --tx:#1b1f27; --tx-mid:#525a68; --tx-lo:#8a93a3;
+  --navy:#26418d; --orange:#c95200; --cyan:#0090ae; --green:#43963c;
+  --accent:var(--navy);
+  --shadow:0 1px 2px rgba(16,24,40,.04), 0 18px 40px -28px rgba(16,24,40,.35);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--page); color:var(--tx);
+  font-family:'IBM Plex Sans','IBM Plex Sans KR',system-ui,sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+  letter-spacing:-0.01em;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+a{color:inherit}
+
+/* ── nav ─────────────────────────────── */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--page) 80%, transparent);
+  backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px}
+.nav-in svg{display:block;height:30px;width:auto}
+.nav-links{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nav-links a{
+  font-size:13.5px;color:var(--tx-mid);text-decoration:none;
+  padding:7px 12px;border-radius:8px;transition:.15s
+}
+.nav-links a:hover{color:var(--tx);background:var(--card-2)}
+.theme-btn{
+  border:1px solid var(--line-2);background:var(--card);color:var(--tx-mid);
+  width:38px;height:34px;border-radius:9px;cursor:pointer;font-size:15px;
+  display:grid;place-items:center;transition:.15s
+}
+.theme-btn:hover{color:var(--tx);border-color:var(--accent)}
+
+/* ── hero ────────────────────────────── */
+.hero{padding-top:96px;padding-bottom:64px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-40% -10% auto;height:520px;
+  background:
+    radial-gradient(620px 320px at 18% 0%, color-mix(in srgb,var(--navy) 26%, transparent), transparent 70%),
+    radial-gradient(520px 300px at 82% 12%, color-mix(in srgb,var(--cyan) 18%, transparent), transparent 70%);
+  filter:blur(8px);opacity:.7;pointer-events:none;z-index:0
+}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--navy);background:color-mix(in srgb,var(--navy) 14%, transparent);
+  border:1px solid color-mix(in srgb,var(--navy) 34%, transparent);
+  padding:6px 13px;border-radius:999px;margin-bottom:26px
+}
+.hero h1{
+  font-size:clamp(38px,6vw,68px);line-height:1.04;font-weight:700;
+  letter-spacing:-0.03em;margin-bottom:24px
+}
+.hero h1 .sight{color:var(--navy)}
+.hero p.lead{font-size:clamp(16px,2vw,20px);color:var(--tx-mid);max-width:680px}
+.hero p.lead b{color:var(--tx);font-weight:600}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
+  padding:12px 20px;border-radius:11px;text-decoration:none;transition:.16s;cursor:pointer;border:1px solid transparent
+}
+.btn.primary{background:var(--navy-tile);color:#fff;border-color:var(--navy-tile)}
+.btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.ghost{background:var(--card);color:var(--tx);border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* family color ribbon */
+.ribbon{display:flex;gap:6px;margin-top:46px}
+.ribbon span{height:8px;border-radius:6px;flex:1}
+
+/* ── section heads ───────────────────── */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.sec-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);font-weight:500}
+.sec-head h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-0.025em}
+.sec-desc{color:var(--tx-mid);max-width:680px;margin-bottom:44px;font-size:16px}
+.sec-desc b{color:var(--tx);font-weight:600}
+
+/* ── tier ladder ─────────────────────── */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tier{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:24px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden
+}
+.tier .step{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--tx-lo)}
+.tier h3{font-size:18px;font-weight:600;margin:10px 0 6px}
+.tier p{font-size:13.5px;color:var(--tx-mid);line-height:1.55}
+.tier .dot{width:34px;height:34px;border-radius:9px;margin-bottom:16px}
+.tier:nth-child(1) .dot{background:linear-gradient(135deg,var(--line-2),var(--card-2))}
+.tier:nth-child(2) .dot{background:var(--navy-tile)}
+.tier:nth-child(3) .dot{background:linear-gradient(135deg,var(--orange-tile),var(--cyan-tile))}
+.tier:nth-child(4) .dot{background:var(--green-tile)}
+.tier .arrow{position:absolute;right:-9px;top:50%;color:var(--line-2);font-size:20px}
+
+/* ── product cards ───────────────────── */
+.products{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.product{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  transition:.18s;display:flex;flex-direction:column
+}
+.product:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--pc) 50%, var(--line))}
+.product::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--pc)
+}
+.product.span2{grid-column:1 / -1}
+.p-top{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.p-tile{flex:none;width:54px;height:54px;border-radius:14px;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}
+.p-tile svg{display:block;width:54px;height:54px}
+.p-title{font-size:21px;font-weight:700;letter-spacing:-0.02em}
+.p-title .sight{color:var(--navy)}
+.p-title .pname{color:var(--pc)}
+.p-role{font-size:12.5px;color:var(--tx-lo);font-weight:500;margin-top:2px;letter-spacing:.02em}
+.product p.desc{font-size:14.5px;color:var(--tx-mid);line-height:1.62;flex:1}
+.p-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tag{
+  font-size:12px;font-weight:500;padding:5px 11px;border-radius:8px;
+  color:var(--pc);background:color-mix(in srgb,var(--pc) 13%, transparent);
+  border:1px solid color-mix(in srgb,var(--pc) 28%, transparent)
+}
+.p-foot{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.swatch{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-family:'IBM Plex Mono',monospace;color:var(--tx-lo)}
+.swatch i{width:13px;height:13px;border-radius:4px;display:inline-block}
+
+/* ── color tokens ────────────────────── */
+.tokens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tok{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.tok .bar{height:84px}
+.tok .body{padding:16px 18px}
+.tok .name{font-weight:600;font-size:15px}
+.tok .who{font-size:12px;color:var(--tx-lo);margin-top:2px}
+.tok .vals{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.tok code{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--tx-mid);background:var(--card-2);padding:3px 7px;border-radius:6px}
+
+/* ── rules / wordmark ────────────────── */
+.rules{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+.rule-list{display:flex;flex-direction:column;gap:14px}
+.rule{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;box-shadow:var(--shadow)}
+.rule .ic{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:15px;background:color-mix(in srgb,var(--accent) 15%, transparent);color:var(--accent)}
+.rule h4{font-size:15px;font-weight:600;margin-bottom:3px}
+.rule p{font-size:13.5px;color:var(--tx-mid);line-height:1.55}
+.wm-demo{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.wm-demo h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--tx-lo);margin-bottom:18px;font-weight:600}
+.wm-row{font-size:25px;font-weight:600;letter-spacing:-0.02em;padding:12px 0;border-bottom:1px dashed var(--line)}
+.wm-row:last-child{border-bottom:0}
+.wm-row .in{color:var(--tx)}
+.wm-row .sight{color:var(--navy)}
+.wm-row .ana{color:var(--orange)}
+.wm-row .prop{color:var(--green)}
+.wm-row .hub{color:var(--cyan)}
+.wm-row small{font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--tx-lo);display:block;font-weight:400;letter-spacing:0;margin-top:2px}
+
+/* ── chart palette ───────────────────── */
+.palette{display:flex;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.palette .c{flex:1;height:120px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px}
+.palette .c span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.85);font-weight:500}
+
+/* ── footer ──────────────────────────── */
+footer{border-top:1px solid var(--line);padding:48px 0 60px;background:var(--page-2)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-in svg{height:28px;width:auto}
+.foot-in p{font-size:13px;color:var(--tx-lo)}
+
+@media(max-width:880px){
+  .tiers{grid-template-columns:1fr 1fr}
+  .products{grid-template-columns:1fr}
+  .tokens{grid-template-columns:1fr 1fr}
+  .rules{grid-template-columns:1fr}
+  .nav-links a:not(.theme-tog){display:none}
+  section{padding:64px 0}
+}
+@media(max-width:520px){
+  .tiers,.tokens{grid-template-columns:1fr}
+  .tier .arrow{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-in">
+    <svg viewBox="0 0 300 64" role="img" aria-label="insight platform">
+      <rect width="64" height="64" rx="16" fill="#3050aa"/>
+      <g stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round">
+        <line x1="32" y1="32" x2="32" y2="16"/><line x1="32" y1="32" x2="45.9" y2="40"/><line x1="32" y1="32" x2="18.1" y2="40"/>
+      </g>
+      <g fill="#3050aa" stroke="#fff" stroke-width="3.4">
+        <circle cx="32" cy="16" r="4.2"/><circle cx="45.9" cy="40" r="4.2"/><circle cx="18.1" cy="40" r="4.2"/>
+      </g>
+      <circle cx="32" cy="32" r="7.5" fill="#fff"/>
+      <text x="84" y="42" font-family="'IBM Plex Sans','IBM Plex Sans KR',sans-serif" font-weight="600" letter-spacing="-0.4">
+        <tspan fill="var(--tx)" font-size="30">in</tspan><tspan fill="var(--navy)" font-size="30">sight</tspan><tspan fill="var(--tx-lo)" font-size="19"> platform</tspan>
+      </text>
+    </svg>
+    <nav class="nav-links">
+      <a href="#system">브랜드 시스템</a>
+      <a href="#family">패밀리</a>
+      <a href="#tokens">컬러</a>
+      <a href="#rules">규칙</a>
+      <button class="theme-btn theme-tog" id="themeBtn" aria-label="테마 전환">◐</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">● insight Family Brand Program</span>
+    <h1>하나의 <span class="sight">insight</span>,<br>세 계층의 색.</h1>
+    <p class="lead">
+      <b>"sight"</b>는 모든 형제 제품이 공유하는 가족색(네이비)입니다.
+      각 제품의 이름이 고유색을 갖고, 특화 에디션은 한 단계 더 색을 더합니다.
+      모든 색은 휴를 고정한 채 라이트·다크에서 명도만 적응합니다 — 그래서 제품이 무한히 늘어나도 한 가족으로 읽힙니다.
+    </p>
+    <div class="hero-cta">
+      <a href="#family" class="btn primary">패밀리 제품 보기</a>
+      <a href="#system" class="btn ghost">브랜드 시스템</a>
+    </div>
+    <div class="ribbon">
+      <span style="background:var(--navy-tile)"></span>
+      <span style="background:var(--orange-tile)"></span>
+      <span style="background:var(--cyan-tile)"></span>
+      <span style="background:var(--green-tile)"></span>
+    </div>
+  </div>
+</div>
+
+<!-- 01 SYSTEM -->
+<section id="system">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>색의 세 계층</h2></div>
+    <p class="sec-desc">중립 → 가족 → 제품 → (선택) 에디션. 이 규칙만 지키면 제품·에디션이 무한히 늘어나도 한 가족으로 읽힙니다. 아이콘 타일은 항상 그 제품/에디션의 <b>대표색</b>을 씁니다.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="dot"></div>
+        <div class="step">LAYER 0</div>
+        <h3>중립</h3>
+        <p>표면·텍스트·라인. 모든 화면의 조용한 바탕이 됩니다.</p>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tier">
+        <div class="dot"></div>
+        <div class="step">LAYER 1 · 가족</div>
+        <h3>네이비 "sight"</h3>
+        <p>모든 형제 제품이 공유하는 가족색. 워드마크의 "sight"는 항상 네이비.</p>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tier">
+        <div class="dot"></div>
+        <div class="step">LAYER 2 · 제품</div>
+        <h3>제품 고유색</h3>
+        <p>Analytics 오렌지 · Data Hub 시안. 제품명·마크 타일·KPI에만.</p>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tier">
+        <div class="dot"></div>
+        <div class="step">LAYER 3 · 에디션</div>
+        <h3>에디션 액센트</h3>
+        <p>특화 에디션이 한 단계 더. Analytics <b>Prop</b>의 연두처럼.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 FAMILY -->
+<section id="family" style="background:var(--page-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>패밀리 프로그램</h2></div>
+    <p class="sec-desc"><b>insight platform</b>이라는 한 우산 아래, 각자 다른 일을 맡은 형제 제품들. 설치 없이 브라우저에서 도는 로컬·퍼스트 도구라는 DNA를 공유합니다.</p>
+    <div class="products">
+
+      <!-- Analytics -->
+      <article class="product" style="--pc:var(--orange)">
+        <div class="p-top">
+          <div class="p-tile">
+            <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#e76709"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16 V48 H48"/><polyline points="22,42 32,30 38,36 48,22"/></g><circle cx="48" cy="22" r="3.6" fill="#fff"/></svg>
+          </div>
+          <div>
+            <div class="p-title"><span class="in">in</span><span class="sight">sight</span> <span class="pname">Analytics</span></div>
+            <div class="p-role">로컬·퍼스트 분석 워크벤치 · WORKBENCH</div>
+          </div>
+        </div>
+        <p class="desc">설치 없이 브라우저에서 데이터를 정제·시각화·통계·머신러닝까지 한 흐름으로 다루는 도구. Tableau의 시각화 + Power BI의 대시보드 + JMP의 통계 + Orange의 분석 흐름을 하나로. <b>오렌지</b>는 insight의 유산색으로 분석·통찰의 에너지를 상징합니다.</p>
+        <div class="p-tags"><span class="tag">데이터 정제</span><span class="tag">시각화</span><span class="tag">통계 · ML</span><span class="tag">대시보드</span></div>
+        <div class="p-foot">
+          <span class="swatch"><i style="background:var(--orange-tile)"></i>#e76709 Orange</span>
+          <span class="swatch" style="margin-left:auto"><i style="background:var(--navy-tile)"></i>가족 네이비</span>
+        </div>
+      </article>
+
+      <!-- Data Hub -->
+      <article class="product" style="--pc:var(--cyan)">
+        <div class="p-top">
+          <div class="p-tile">
+            <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#00a4bf"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M25 17H18V47H25"/><path d="M39 17H46V47H39"/></g><circle cx="32" cy="32" r="4" fill="#fff"/></svg>
+          </div>
+          <div>
+            <div class="p-title"><span class="in">in</span><span class="sight">sight</span> <span class="pname">Data Hub</span></div>
+            <div class="p-role">데이터 수집 · 공급원 · SOURCE LAYER</div>
+          </div>
+        </div>
+        <p class="desc">소스 연결부터 파이프라인·스키마 관리까지 한곳에서. 형제 제품들이 분석할 데이터를 모으고 흘려보내는 공급 계층입니다. <b>시안</b>은 흐르는 데이터·연결의 명료함을 상징 — 마크의 대괄호와 중심점이 "허브"를 표현합니다.</p>
+        <div class="p-tags"><span class="tag">소스 연결</span><span class="tag">파이프라인</span><span class="tag">스키마 관리</span></div>
+        <div class="p-foot">
+          <span class="swatch"><i style="background:var(--cyan-tile)"></i>#00a4bf Cyan</span>
+          <span class="swatch" style="margin-left:auto"><i style="background:var(--navy-tile)"></i>가족 네이비</span>
+        </div>
+      </article>
+
+      <!-- Analytics Prop (edition, full width) -->
+      <article class="product span2" style="--pc:var(--green)">
+        <div class="p-top">
+          <div class="p-tile">
+            <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#e76709"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16 V48 H48"/><polyline points="22,42 32,30 38,36 48,22"/></g><circle cx="48" cy="22" r="3.6" fill="#fff"/><rect x="40" y="40" width="20" height="20" rx="7" fill="#87ce5b" stroke="#e76709" stroke-width="4"/></svg>
+          </div>
+          <div>
+            <div class="p-title"><span class="in">in</span><span class="sight">sight</span> <span style="color:var(--orange)">Analytics</span> <span class="pname">Prop</span></div>
+            <div class="p-role">분양대행사 기획 전용 Planning OS · EDITION</div>
+          </div>
+        </div>
+        <p class="desc">insight Analytics의 <b>부동산(Property) 에디션</b>. 분양대행사 마케팅 기획 담당자가 시장조사·경쟁단지 분석·분양가 검토·전략 수립·보고서 작성을 하나의 로컬 워크스페이스에서 처리합니다. Analytics의 오렌지·로고마크를 그대로 계승하고, <b>연두</b>를 에디션 액센트로 더해 4계층(중립·가족·제품·에디션) 색이 한 잠금장치에 모입니다.</p>
+        <div class="p-tags"><span class="tag">Planning Studio</span><span class="tag">시장조사</span><span class="tag">입지 지도</span><span class="tag">분양가 검토</span><span class="tag">Report Builder</span></div>
+        <div class="p-foot">
+          <span class="swatch"><i style="background:var(--green-tile)"></i>#87ce5b Green · 에디션</span>
+          <span class="swatch"><i style="background:var(--orange-tile)"></i>오렌지 계승</span>
+          <span class="swatch" style="margin-left:auto"><i style="background:var(--navy-tile)"></i>가족 네이비</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 03 TOKENS -->
+<section id="tokens">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>컬러 토큰</h2></div>
+    <p class="sec-desc">휴(oklch 마지막 값)는 라이트·다크에서 <b>고정</b>, 명도(첫 값)만 적응합니다. 그래서 어떤 테마에서도 같은 색으로 인지됩니다. 아래 칩은 현재 테마 값을 보여줍니다.</p>
+    <div class="tokens">
+      <div class="tok">
+        <div class="bar" style="background:var(--navy-tile)"></div>
+        <div class="body"><div class="name">네이비 · "sight"</div><div class="who">가족색 — 모든 제품 공유</div>
+          <div class="vals"><code>tile #3050aa</code><code>light #26418d</code><code>dark #7ba1fc</code></div></div>
+      </div>
+      <div class="tok">
+        <div class="bar" style="background:var(--orange-tile)"></div>
+        <div class="body"><div class="name">오렌지 · Analytics</div><div class="who">제품색 — 유산색 계승</div>
+          <div class="vals"><code>tile #e76709</code><code>light #c95200</code><code>dark #fb8a44</code></div></div>
+      </div>
+      <div class="tok">
+        <div class="bar" style="background:var(--cyan-tile)"></div>
+        <div class="body"><div class="name">시안 · Data Hub</div><div class="who">제품색 — 연결·흐름</div>
+          <div class="vals"><code>tile #00a4bf</code><code>light #0090ae</code><code>dark #50d2e6</code></div></div>
+      </div>
+      <div class="tok">
+        <div class="bar" style="background:var(--green-tile)"></div>
+        <div class="body"><div class="name">연두 · Prop</div><div class="who">에디션 액센트</div>
+          <div class="vals"><code>tile #87ce5b</code><code>light #43963c</code><code>dark #98da6a</code></div></div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:64px"><span class="sec-num">03·b</span><h2 style="font-size:24px">차트 팔레트 — 네이비 앵커</h2></div>
+    <p class="sec-desc">카테고리 팔레트는 가족색 네이비를 <b>1번 앵커</b>로, 휴를 45°씩 등간격 회전해 8색을 만듭니다. 모든 제품이 이 한 벌을 공유하므로 어떤 대시보드든 "insight 차트"로 보입니다.</p>
+    <div class="palette">
+      <div class="c" style="background:#3050aa"><span>#3050aa</span></div>
+      <div class="c" style="background:#7a4bb0"><span>+45°</span></div>
+      <div class="c" style="background:#b0457f"><span>+90°</span></div>
+      <div class="c" style="background:#c95200"><span>+135°</span></div>
+      <div class="c" style="background:#9a8b1e"><span>+180°</span></div>
+      <div class="c" style="background:#43963c"><span>+225°</span></div>
+      <div class="c" style="background:#149e87"><span>+270°</span></div>
+      <div class="c" style="background:#0090ae"><span>+315°</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 RULES -->
+<section id="rules" style="background:var(--page-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>워드마크 잠금 규칙</h2></div>
+    <p class="sec-desc">워드마크는 <b>in</b>(중립) + <b>sight</b>(네이비) + <b>제품명</b>(제품색) + (선택) <b>에디션</b>(에디션색)의 잠금 구조입니다.</p>
+    <div class="rules">
+      <div class="rule-list">
+        <div class="rule"><div class="ic">✓</div><div><h4>"sight"는 항상 네이비</h4><p>제품명 단어만 제품색으로 칠합니다. 마크 타일은 단색 대표색을 꽉 채워 사용.</p></div></div>
+        <div class="rule"><div class="ic">✕</div><div><h4>"sight"에 제품색 금지</h4><p>한 워드마크에 3색(역할) 초과 금지 — 중립·가족·제품·에디션 외의 색을 더하지 않기.</p></div></div>
+        <div class="rule"><div class="ic">◐</div><div><h4>휴 고정, 명도만 적응</h4><p>라이트에선 살짝 어둡게(가독), 다크에선 밝게. 휴는 어떤 테마에서도 동일.</p></div></div>
+        <div class="rule"><div class="ic">▭</div><div><h4>최소 표시 크기</h4><p>마크 20px, 워드마크 높이 18px. 그 이하에서는 마크(타일)만 단독 사용.</p></div></div>
+      </div>
+      <div class="wm-demo">
+        <h4>잠금 구조 예시</h4>
+        <div class="wm-row"><span class="in">in</span><span class="sight">sight</span> <span style="color:var(--tx-lo);font-size:.7em">platform</span><small>중립 + 가족(네이비) + 설명</small></div>
+        <div class="wm-row"><span class="in">in</span><span class="sight">sight</span> <span class="ana">Analytics</span><small>+ 제품(오렌지)</small></div>
+        <div class="wm-row"><span class="in">in</span><span class="sight">sight</span> <span class="hub">Data Hub</span><small>+ 제품(시안)</small></div>
+        <div class="wm-row"><span class="in">in</span><span class="sight">sight</span> <span class="ana">Analytics</span> <span class="prop">Prop</span><small>+ 제품(오렌지) + 에디션(연두)</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <svg viewBox="0 0 300 64" role="img" aria-label="insight platform">
+      <rect width="64" height="64" rx="16" fill="#3050aa"/>
+      <g stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round">
+        <line x1="32" y1="32" x2="32" y2="16"/><line x1="32" y1="32" x2="45.9" y2="40"/><line x1="32" y1="32" x2="18.1" y2="40"/>
+      </g>
+      <g fill="#3050aa" stroke="#fff" stroke-width="3.4">
+        <circle cx="32" cy="16" r="4.2"/><circle cx="45.9" cy="40" r="4.2"/><circle cx="18.1" cy="40" r="4.2"/>
+      </g>
+      <circle cx="32" cy="32" r="7.5" fill="#fff"/>
+      <text x="84" y="42" font-family="'IBM Plex Sans','IBM Plex Sans KR',sans-serif" font-weight="600" letter-spacing="-0.4">
+        <tspan fill="var(--tx)" font-size="30">in</tspan><tspan fill="var(--navy)" font-size="30">sight</tspan><tspan fill="var(--tx-lo)" font-size="19"> platform</tspan>
+      </text>
+    </svg>
+    <p>insight Family Brand Program · 하나의 insight, 세 계층의 색 · Analytics · Analytics Prop · Data Hub</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var saved=null; try{saved=localStorage.getItem('insight-theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  function paint(){ btn.textContent = root.getAttribute('data-theme')==='dark' ? '◐' : '◑'; }
+  paint();
+  btn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('insight-theme',next)}catch(e){}
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
